@@ -27,3 +27,18 @@ def get_batch(split):
     x= torch.stack([data[i:i+block_size] for i in ix])
     y = torch.stack([data[i+1:i+block_size+1] for i in ix])
     return x,y
+
+xb, yb = get_batch('train')
+print('inputs:')
+print(xb.shape)
+print(xb)
+print('targets:')
+print(yb.shape)
+print(yb)
+print('-------')
+
+for b in range(batch_size):
+    for t in range(block_size):
+        context=xb[b, :t+1]
+        target= yb[b,t]
+        print(f"when input is {context.tolist()} the target: {target}")
