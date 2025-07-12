@@ -55,3 +55,7 @@ class BigramLanguageModel(nn.Module):
 
         target= yb[b,t]
         print(f"when input is {context.tolist()} the target: {target}")
+
+m=BigramLanguageModel(vocab_size)
+out = m(xb,yb)
+print(out.shape)
