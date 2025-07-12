@@ -42,5 +42,16 @@ print('-------')
 for b in range(batch_size):
     for t in range(block_size):
         context=xb[b, :t+1]
+
+class BigramLanguageModel(nn.Module):
+    def __init__(self,vocab_size):
+        super().__init__()
+        self.token_embedding_table = nn.Embedding(vocab_size, vocab_size)
+
+    def forward(self,idx,targets):
+        logits = self.token_embedding_table(idx)
+
+        return logits
+
         target= yb[b,t]
         print(f"when input is {context.tolist()} the target: {target}")
