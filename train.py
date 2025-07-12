@@ -60,3 +60,4 @@ class BigramLanguageModel(nn.Module):
 m=BigramLanguageModel(vocab_size)
 logits, loss = m(xb,yb)
 print(logits.shape)
+print(loss)
