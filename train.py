@@ -1,4 +1,6 @@
 import torch
+import torch.nn as nn
+from torch.nn import functional as f
 
 !wget https://raw.githubusercontent.com/karpathy/char-rnn/master/data/tinyshakespeare/input.txt
 
